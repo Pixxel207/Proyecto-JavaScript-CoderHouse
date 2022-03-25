@@ -152,10 +152,10 @@ function tomarValor(event) {
 // const prev =  0;
 subtotalCarrito(carrito);
 
-function subtotalCarrito () {
-const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
+function subtotalCarrito() {
+    const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
 
-document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
+    document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
 };
 // function obtenerPrecioTotal(array) {
 //     let precioTotal = 0;
@@ -169,38 +169,34 @@ document.getElementById("subtotal-carrito").innerHTML = `El total de su compra e
 
 generarWidgetsCarrito(productos);
 
-function generarWidgetsCarrito(widgetsParaMostrar) {
+function generarWidgetsCarrito() {
     let acumuladorDeCards = ` `;
-    widgetsParaMostrar.forEach((widgets) => {
-        acumuladorDeCards += `<div class="product-widget">
+    carrito.forEach((producto) => {
+        acumuladorDeCards += `<div id="widget-carrito" class="product-widget">
             <div class="product-img">
-                <img src="${widgets.imagen}" alt="">
+                <img src="${producto.imagen}" alt="">
             </div>
             <div class="product-body">
-                <h3 class="product-name"><a href="#">${widgets.titulo}</a></h3>
-                <h4 class="product-price"><span class="qty">1x</span>${widgets.precio}</h4>
+                <h3 class="product-name"><a href="#">${producto.titulo}</a></h3>
+                <h4 class="product-price"><span class="qty">1x</span>${producto.precio}</h4>
             </div>
             <button class="delete"><i class="fa fa-close"></i></button>
-        </div>`;
+        </div>`
     })
     mostrrarWidgetsEnElHtml(acumuladorDeCards);
+}
+
+
+function mostrrarWidgetsEnElHtml(cards) {
     document.getElementById("widget-carrito").innerHTML = cards;
 }
 
 
-// function mostrrarWidgetsEnElHtml(cards) {
-//     document.getElementById("widget-carrito").innerHTML = cards;
-// }
-
-
-const colores =['rojo','amarillo','azul'];
+const colores = ['rojo', 'amarillo', 'azul'];
 const select = document.querySelector('#colores');
 
-// colores.forEach(elemento) => {
-//     select.innerHTML += `
-    
-//     `
-// }
-
-
-
+colores.forEach(element=>{
+            select.innerHTML += `
+    <option value="${element}">${element} </option>
+    `
+        });
