@@ -1,6 +1,8 @@
 const carritoStorage = JSON.parse(localStorage.getItem("carrito"));
 const carrito = carritoStorage;
-localStorage.setItem("carrito",JSON.stringify(carrito));
+document.getElementById("cantidad-prod").innerHTML=carrito.length;
+
+
 // class ProductosDelArray {
 //     constructor(productos){
 //         this.id = productos.id;
@@ -62,7 +64,8 @@ const productos = [{
 const agregarAlCarrito = (idProducto) => {
     const productosAgregados = productos.find(producto => producto.id === idProducto);
     carrito.push(productosAgregados);
-    document.getElementById("cantidad-prod").innerHTML = carrito.length;
+    document.getElementById("cantidad-prod").innerHTML=carrito.length;
+    localStorage.setItem("carrito",JSON.stringify(carrito));
 
 
 };
