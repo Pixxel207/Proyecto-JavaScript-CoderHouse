@@ -1,3 +1,6 @@
+const carritoStorage = JSON.parse(localStorage.getItem("carrito"));
+const carrito = carritoStorage;
+localStorage.setItem("carrito",JSON.stringify(carrito));
 // class ProductosDelArray {
 //     constructor(productos){
 //         this.id = productos.id;
@@ -52,8 +55,9 @@ const productos = [{
     }
 
 ]
+// Funcion de agregar al carrito -----Comienzo-------
 
-const carrito = []
+
 
 const agregarAlCarrito = (idProducto) => {
     const productosAgregados = productos.find(producto => producto.id === idProducto);
@@ -63,8 +67,11 @@ const agregarAlCarrito = (idProducto) => {
 
 };
 
-//agregarAlCarrito(1);
-//agregarAlCarrito(2);
+// Funcion de agregar al carrito -----Fin-------
+
+// Funcion para generar cards en el html -----Comienzo-----
+// Funcion para generar cards en el html -----Comienzo-----
+
 
 generarCards(productos);
 
@@ -108,6 +115,16 @@ function mostrarCardsEnElHTML(cards) {
     document.getElementById("ProductosParaMostrar").innerHTML = cards;
 };
 
+// Funcion para generar cards en el html -----Fin-----
+// Funcion para generar cards en el html -----Fin-----
+
+function buscarProductos(){
+    const email =document.getElementbyId("productos-buscados").value;
+    console.log(email);
+
+}
+
+
 
 function buscarProducto() {
     console.log("Hola!")
@@ -149,7 +166,9 @@ function tomarValor(event) {
 // }
 
 
-// const prev =  0;
+// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
+// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
+
 subtotalCarrito(carrito);
 
 function subtotalCarrito() {
@@ -157,15 +176,14 @@ function subtotalCarrito() {
 
     document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
 };
-// function obtenerPrecioTotal(array) {
-//     let precioTotal = 0;
 
-//     for (const productos of array) {
-//       precioTotal += productos.precioTotal;
-//     }
-// }
+// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
+// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
 
-// obtenerPrecioTotal();
+
+
+// Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
+// Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
 
 generarWidgetsCarrito(productos);
 
@@ -180,7 +198,7 @@ function generarWidgetsCarrito() {
                 <h3 class="product-name"><a href="#">${producto.titulo}</a></h3>
                 <h4 class="product-price"><span class="qty">1x</span>${producto.precio}</h4>
             </div>
-            <button class="delete"><i class="fa fa-close"></i></button>
+            <button onclick="remover($0)" class="delete"><i class="fa fa-close"></i></button>
         </div>`
     })
     mostrrarWidgetsEnElHtml(acumuladorDeCards);
@@ -191,6 +209,9 @@ function mostrrarWidgetsEnElHtml(cards) {
     document.getElementById("widget-carrito").innerHTML = cards;
 }
 
+// Funcion generar widgets en el menu que despliega el carrito ------Fin-----
+// Funcion generar widgets en el menu que despliega el carrito ------Fin-----
+
 
 const colores = ['rojo', 'amarillo', 'azul'];
 const select = document.querySelector('#colores');
@@ -199,4 +220,14 @@ colores.forEach(element=>{
             select.innerHTML += `
     <option value="${element}">${element} </option>
     `
+
         });
+
+// function remover (producto) {
+//     productoRemovido = $0.remove;
+//     console.log('el producto se borro');
+
+// }
+
+// remover($0)
+
