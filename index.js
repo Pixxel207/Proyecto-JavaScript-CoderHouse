@@ -1,7 +1,14 @@
-const carritoStorage = JSON.parse(localStorage.getItem("carrito"));
-const carrito = carritoStorage;
-document.getElementById("cantidad-prod").innerHTML=carrito.length;
+const carrito = validandoCarrito();
+function validandoCarrito() {
+    if (localStorage.getItem("carrito") != null) {
+        const productosParaElStorage = JSON.parse(localStorage.getItem("carrito"));
+        return productosParaElStorage;
+    }else{
+        return [];
+    }
+}
 
+document.getElementById("cantidad-prod").innerHTML= carrito.length;
 
 // class ProductosDelArray {
 //     constructor(productos){
@@ -58,6 +65,7 @@ const productos = [{
 
 ]
 // Funcion de agregar al carrito -----Comienzo-------
+// Funcion de agregar al carrito -----Comienzo-------
 
 
 
@@ -66,11 +74,19 @@ const agregarAlCarrito = (idProducto) => {
     carrito.push(productosAgregados);
     document.getElementById("cantidad-prod").innerHTML=carrito.length;
     localStorage.setItem("carrito",JSON.stringify(carrito));
+    if(idProducto = )
 
 
 };
 
 // Funcion de agregar al carrito -----Fin-------
+// Funcion de agregar al carrito -----Fin-------
+
+
+function agregarVarios () {
+const productoSeleccionado = pro
+}
+
 
 // Funcion para generar cards en el html -----Comienzo-----
 // Funcion para generar cards en el html -----Comienzo-----
