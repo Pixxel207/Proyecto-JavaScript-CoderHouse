@@ -1,8 +1,7 @@
-const carrito = validandoCarrito();
+var carrito = validandoCarrito();
 function validandoCarrito() {
     if (localStorage.getItem("carrito") != null) {
-        const productosParaElStorage = JSON.parse(localStorage.getItem("carrito"));
-        return productosParaElStorage;
+        return JSON.parse(localStorage.getItem("carrito"));
     }else{
         return [];
     }
@@ -74,7 +73,6 @@ const agregarAlCarrito = (idProducto) => {
     carrito.push(productosAgregados);
     document.getElementById("cantidad-prod").innerHTML=carrito.length;
     localStorage.setItem("carrito",JSON.stringify(carrito));
-    if(idProducto = )
 
 
 };
@@ -185,21 +183,6 @@ function tomarValor(event) {
 // }
 
 
-// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
-// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
-
-subtotalCarrito(carrito);
-
-function subtotalCarrito() {
-    const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
-
-    document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
-};
-
-// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
-// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
-
-
 
 // Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
 // Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
@@ -217,7 +200,7 @@ function generarWidgetsCarrito() {
                 <h3 class="product-name"><a href="#">${producto.titulo}</a></h3>
                 <h4 class="product-price"><span class="qty">1x</span>${producto.precio}</h4>
             </div>
-            <button onclick="remover($0)" class="delete"><i class="fa fa-close"></i></button>
+            <button onclick="removerProd_carrito(${producto.id})" class="delete"><i class="fa fa-close"></i></button>
         </div>`
     })
     mostrrarWidgetsEnElHtml(acumuladorDeCards);
@@ -230,6 +213,46 @@ function mostrrarWidgetsEnElHtml(cards) {
 
 // Funcion generar widgets en el menu que despliega el carrito ------Fin-----
 // Funcion generar widgets en el menu que despliega el carrito ------Fin-----
+
+// Funcion para poder sacar un producto de mi carrito  ----Inicio----
+// Funcion para poder sacar un producto de mi carrito  ----Inicio----
+
+
+function removerProd_carrito (valorid){
+
+    carrito = carrito.filter((producto)=>producto.id != valorid);
+    console.log('se ejecuto');
+    generarWidgetsCarrito();
+    localStorage.getItem('carrito')
+}
+
+
+
+
+
+
+
+
+// Funcion para poder sacar un producto de mi carrito   ----Fin----
+// Funcion para poder sacar un producto de mi carrito   ----Fin----
+
+
+
+
+// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
+// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
+
+subtotalCarrito(carrito);
+
+function subtotalCarrito() {
+    const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
+
+    document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
+};
+
+// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
+// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
+
 
 
 const colores = ['rojo', 'amarillo', 'azul'];
