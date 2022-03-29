@@ -219,11 +219,14 @@ function mostrrarWidgetsEnElHtml(cards) {
 
 
 function removerProd_carrito (valorid){
-
+    removerProdu = 
     carrito = carrito.filter((producto)=>producto.id != valorid);
     console.log('se ejecuto');
-    generarWidgetsCarrito();
-    localStorage.getItem('carrito')
+    generarWidgetsCarrito(carrito);
+    SubtotalActualizado = subtotalCarrito() - valorid.precio;
+    localStorage.setItem('removerProdu',JSON.stringify(removerProd_carrito));
+    JSON.parse(localStorage.getItem('removerProdu'));
+    document.getElementById("cantidad-prod").innerHTML= carrito.length;
 }
 
 
@@ -246,7 +249,7 @@ subtotalCarrito(carrito);
 
 function subtotalCarrito() {
     const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
-
+    
     document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
 };
 
