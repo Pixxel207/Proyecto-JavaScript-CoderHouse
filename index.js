@@ -1,13 +1,14 @@
 var carrito = validandoCarrito();
+
 function validandoCarrito() {
     if (localStorage.getItem("carrito") != null) {
         return JSON.parse(localStorage.getItem("carrito"));
-    }else{
+    } else {
         return [];
     }
 }
 
-document.getElementById("cantidad-prod").innerHTML= carrito.length;
+document.getElementById("cantidad-prod").innerHTML = carrito.length;
 
 // class ProductosDelArray {
 //     constructor(productos){
@@ -71,8 +72,8 @@ const productos = [{
 const agregarAlCarrito = (idProducto) => {
     const productosAgregados = productos.find(producto => producto.id === idProducto);
     carrito.push(productosAgregados);
-    document.getElementById("cantidad-prod").innerHTML=carrito.length;
-    localStorage.setItem("carrito",JSON.stringify(carrito));
+    document.getElementById("cantidad-prod").innerHTML = carrito.length;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 
 
 };
@@ -81,8 +82,8 @@ const agregarAlCarrito = (idProducto) => {
 // Funcion de agregar al carrito -----Fin-------
 
 
-function agregarVarios () {
-const productoSeleccionado = pro
+function agregarVarios() {
+    const productoSeleccionado = pro
 }
 
 
@@ -135,8 +136,8 @@ function mostrarCardsEnElHTML(cards) {
 // Funcion para generar cards en el html -----Fin-----
 // Funcion para generar cards en el html -----Fin-----
 
-function buscarProductos(){
-    const email =document.getElementbyId("productos-buscados").value;
+function buscarProductos() {
+    const email = document.getElementbyId("productos-buscados").value;
     console.log(email);
 
 }
@@ -218,15 +219,14 @@ function mostrrarWidgetsEnElHtml(cards) {
 // Funcion para poder sacar un producto de mi carrito  ----Inicio----
 
 
-function removerProd_carrito (valorid){
-    removerProdu = 
-    carrito = carrito.filter((producto)=>producto.id != valorid);
+function removerProd_carrito(valorid) {
+    carrito = carrito.filter((producto) => producto.id != valorid);
     console.log('se ejecuto');
     generarWidgetsCarrito(carrito);
     SubtotalActualizado = subtotalCarrito() - valorid.precio;
-    localStorage.setItem('removerProdu',JSON.stringify(removerProd_carrito));
-    JSON.parse(localStorage.getItem('removerProdu'));
-    document.getElementById("cantidad-prod").innerHTML= carrito.length;
+    document.getElementById("cantidad-prod").innerHTML = carrito.length;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
 }
 
 
@@ -249,7 +249,7 @@ subtotalCarrito(carrito);
 
 function subtotalCarrito() {
     const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
-    
+
     document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
 };
 
@@ -261,12 +261,12 @@ function subtotalCarrito() {
 const colores = ['rojo', 'amarillo', 'azul'];
 const select = document.querySelector('#colores');
 
-colores.forEach(element=>{
-            select.innerHTML += `
+colores.forEach(element => {
+    select.innerHTML += `
     <option value="${element}">${element} </option>
     `
 
-        });
+});
 
 // function remover (producto) {
 //     productoRemovido = $0.remove;
@@ -275,4 +275,3 @@ colores.forEach(element=>{
 // }
 
 // remover($0)
-
