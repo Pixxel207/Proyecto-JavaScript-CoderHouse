@@ -338,7 +338,7 @@
 					<!-- aside Widget -->
 					<div class="aside">
 						<h3 class="aside-title">Top selling</h3>
-						<div class="product-widget">
+						<div id="products-topSelling"class="product-widget">
 							<div class="product-img">
 								<img src="./img/product01.png" alt="">
 							</div>
@@ -349,27 +349,7 @@
 							</div>
 						</div>
 
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product02.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#">product name goes here</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-							</div>
-						</div>
-
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product03.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#">product name goes here</a></h3>
-								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-							</div>
-						</div>
+						
 					</div>
 					<!-- /aside Widget -->
 				</div>
@@ -404,9 +384,9 @@
 					<!-- /store top filter -->
 
 					<!-- store products -->
-					<div class="row">
+					<div class="store">
 						<!-- product -->
-						<div id="ProductosParaMostrar" class="col-md-4 col-xs-6">
+						<div id="ProductosParaMostrar" class="col-md-4 col-xs-6,productosAMostrar">
 
 
 						</div>
@@ -573,13 +553,14 @@
 		<!-- jQuery Plugins -->
 
 		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>		
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>		
 		<script src="index.js"></script>
 		<script src="js/slick.min.js"></script>
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
-
+		
 </body>
 
 </html>
