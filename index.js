@@ -1,3 +1,4 @@
+// Validacion del carrito Inicio
 var carrito = validandoCarrito();
 
 function validandoCarrito() {
@@ -10,26 +11,9 @@ function validandoCarrito() {
 
 document.getElementById("cantidad-prod").innerHTML = carrito.length;
 
-// class ProductosDelArray {
-//     constructor(productos){
-//         this.id = productos.id;
-//         this.titulos=  productos.titulo;
-//         this.precioRebaja = productos.precioRebaja;
-//         this.precioNormal = productos.precioNormal;
-//         this.imagen = productos.imagen;
-//         this.cantidad = 2;
-//     }
-//     agregaUnidad(){
-//         this.cantidad++;
-//     }
-//     quitarUnidad(){
-//         this.cantidad--;
-//     }
-// actualizarPrecioTotal(){
-//     this.precioTotal = this.precio * this.cantidad;
-// }
+// Validacion del carrito Fin
 
-// }
+//Arrays Inicio 
 const productos = [{
         id: 1,
         titulo: 'Notebook Samsung',
@@ -66,54 +50,52 @@ const productos = [{
 ]
 
 const TopSelling = [
-    
+
     {
-        id:1,
-        titulo:"Apple iPhone 13 Pro Max",
-        precio:150000,
-        stock:0,
-        precioSinRebaja:300000,
-        imagen:"https://nissei.com/media/catalog/product/cache/16a9529cefd63504739dab4fc3414065/i/p/iphone-13-pro-max-blue-selectyyyy.jpg"
+        id: 1,
+        titulo: "Apple iPhone 13 Pro Max",
+        precio: 150000,
+        stock: 0,
+        precioSinRebaja: 300000,
+        imagen: "https://nissei.com/media/catalog/product/cache/16a9529cefd63504739dab4fc3414065/i/p/iphone-13-pro-max-blue-selectyyyy.jpg"
     },
     {
-        id:2,
-        titulo:"Samsung Galaxy A51",
-        precio:150000,
-        stock:0,
-        precioSinRebaja:300000,
-        imagen:"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTXi-S9ugudqDRV9vCybOhnGnkcR24GsqKRmPK3OoZuQJEfMsMmKVTTG2wrnJT3GUWg4zVPhhlj8gQyrHWbmRslPF8li2J41A"
+        id: 2,
+        titulo: "Samsung Galaxy A51",
+        precio: 150000,
+        stock: 0,
+        precioSinRebaja: 300000,
+        imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTXi-S9ugudqDRV9vCybOhnGnkcR24GsqKRmPK3OoZuQJEfMsMmKVTTG2wrnJT3GUWg4zVPhhlj8gQyrHWbmRslPF8li2J41A"
     },
     {
-        id:3,
-        titulo:"Xiaomi Redmi 10",
-        precio:150000,
-        stock:0,
-        precioSinRebaja:300000,
-        imagen:"https://http2.mlstatic.com/D_NQ_NP_612869-MLA48741510265_012022-O.webp"
+        id: 3,
+        titulo: "Xiaomi Redmi 10",
+        precio: 150000,
+        stock: 0,
+        precioSinRebaja: 300000,
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_612869-MLA48741510265_012022-O.webp"
     },
     {
-        id:4,
-        titulo:" MOTOROLA EDGE 20 PRO",
-        precio:150000,
-        stock:0,
-        precioSinRebaja:300000,
-        imagen:"http://medias.musimundo.com/medias/00435014-144181-144181-01-144181-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w3NTMxOHxpbWFnZS9qcGVnfGgwYS9oMjgvMTAzMDEzNjA5NjM2MTQvMDA0MzUwMTQtMTQ0MTgxLTE0NDE4MV8wMS0xNDQxODFfMDEuanBnX3NpemU1MTV8ZDQ0Mjc1ZTI3MDUxMzkxNzEzZjIyZjlhMzI0MGE3M2Q1ZjY2ZmM2Zjc1ZTgzMDNhMDE5OGE0YjU0NDA3YTExYg"
+        id: 4,
+        titulo: " MOTOROLA EDGE 20 PRO",
+        precio: 150000,
+        stock: 0,
+        precioSinRebaja: 300000,
+        imagen: "http://medias.musimundo.com/medias/00435014-144181-144181-01-144181-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w3NTMxOHxpbWFnZS9qcGVnfGgwYS9oMjgvMTAzMDEzNjA5NjM2MTQvMDA0MzUwMTQtMTQ0MTgxLTE0NDE4MV8wMS0xNDQxODFfMDEuanBnX3NpemU1MTV8ZDQ0Mjc1ZTI3MDUxMzkxNzEzZjIyZjlhMzI0MGE3M2Q1ZjY2ZmM2Zjc1ZTgzMDNhMDE5OGE0YjU0NDA3YTExYg"
     },
     {
-        id:5,
-        titulo:"LG Velvet 128 Gb",
-        precio:150000,
-        stock:0,
-        precioSinRebaja:300000,
-        imagen:"https://http2.mlstatic.com/D_NQ_NP_844070-MLA46435469794_062021-O.webp"
+        id: 5,
+        titulo: "LG Velvet 128 Gb",
+        precio: 150000,
+        stock: 0,
+        precioSinRebaja: 300000,
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_844070-MLA46435469794_062021-O.webp"
     }
 ]
 
+//Arrays Fin
 
 // Funcion de agregar al carrito -----Comienzo-------
-// Funcion de agregar al carrito -----Comienzo-------
-
-
 
 const agregarAlCarrito = (idProducto) => {
     const productosAgregados = productos.find(producto => producto.id === idProducto);
@@ -126,17 +108,12 @@ const agregarAlCarrito = (idProducto) => {
 };
 
 // Funcion de agregar al carrito -----Fin-------
-// Funcion de agregar al carrito -----Fin-------
 
-
-function agregarVarios() {
-    const productoSeleccionado = pro
-}
-
+// function agregarVarios() {
+//     const productoSeleccionado = pro
+// }
 
 // Funcion para generar cards en el html -----Comienzo-----
-// Funcion para generar cards en el html -----Comienzo-----
-
 
 generarCards(productos);
 
@@ -181,7 +158,6 @@ function mostrarCardsEnElHTML(cards) {
 };
 
 // Funcion para generar cards en el html -----Fin-----
-// Funcion para generar cards en el html -----Fin-----
 
 function buscarProductos() {
     const email = document.getElementbyId("productos-buscados").value;
@@ -209,38 +185,15 @@ const boton = document.getElementById("boton-buscar");
 
 function tomarValor(event) {
     console.log(event.target.value);
-    // const input = document.getElementById("texto-prueba").value;
-    // console.log(input);
-}
-// totalProductos(productos);
-// const totalProductos = () => {
-//     let total = 0;
-//     carrito.forEach((producto)=>{
-//     total += producto.precioRebaja
-//     })
-//     document.getElementById("subtotal-carrito").innerHTML = total;
-// }
 
-// function totalProd()
-// {
-//     let total = 0;
-//     carrito.forEach((producto)=>{
-//         total += producto.precioRebaja;
-//     })
-//     return total;
-// }
+    // Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
 
+    generarWidgetsCarrito(productos);
 
-
-// Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
-// Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
-
-generarWidgetsCarrito(productos);
-
-function generarWidgetsCarrito() {
-    let acumuladorDeCards = ` `;
-    carrito.forEach((producto) => {
-        acumuladorDeCards += `<div id="widget-carrito" class="product-widget">
+    function generarWidgetsCarrito() {
+        let acumuladorDeCards = ` `;
+        carrito.forEach((producto) => {
+            acumuladorDeCards += `<div id="widget-carrito" class="product-widget">
             <div class="product-img">
                 <img src="${producto.imagen}" alt="">
             </div>
@@ -250,28 +203,25 @@ function generarWidgetsCarrito() {
             </div>
             <button onclick="removerProd_carrito(${producto.id})" class="delete"><i class="fa fa-close"></i></button>
         </div>`
-    })
-    mostrrarWidgetsEnElHtml(acumuladorDeCards);
-}
+        })
+        mostrrarWidgetsEnElHtml(acumuladorDeCards);
+    }
 
 
-function mostrrarWidgetsEnElHtml(cards) {
-    document.getElementById("widget-carrito").innerHTML = cards;
-}
+    function mostrrarWidgetsEnElHtml(cards) {
+        document.getElementById("widget-carrito").innerHTML = cards;
+    }
 
-// Funcion generar widgets en el menu que despliega el carrito ------Fin-----
-// Funcion generar widgets en el menu que despliega el carrito ------Fin-----
+    // Funcion generar widgets en el menu que despliega el carrito ------Fin-----
 
-// Funcion para generar las cards en los productos del Top Sellings -----Inicio-----
-// Funcion para generar las cards en los productos del Top Sellings -----Inicio-----
+    // Funcion para generar las cards en los productos del Top Sellings -----Inicio-----
 
+    productosTopSellings();
 
-
-productosTopSellings();
-function productosTopSellings(){
-    let acumuladorDeCards = ` `;
-    TopSelling.forEach((producto) => {
-        acumuladorDeCards += `<div id="products-topSelling"class="product-widget">
+    function productosTopSellings() {
+        let acumuladorDeCards = ` `;
+        TopSelling.forEach((producto) => {
+            acumuladorDeCards += `<div id="products-topSelling"class="product-widget">
         <div class="product-img">
             <img src="${producto.imagen}" alt="">
         </div>
@@ -281,78 +231,42 @@ function productosTopSellings(){
             <h4 class="product-price">$${producto.precio}<del class="product-old-price">$990.00</del></h4>
         </div>
     </div>`
-    });
-    mostrarProductosTopSellingEnHtml(acumuladorDeCards);
+        });
+        mostrarProductosTopSellingEnHtml(acumuladorDeCards);
+    }
+
+    function mostrarProductosTopSellingEnHtml(cards) {
+        document.getElementById("products-topSelling").innerHTML = cards;
+    }
+
+    // Funcion para generar las cards en los productos del Top Sellings -----Fin-----
+
+    // Funcion para poder sacar un producto de mi carrito  ----Inicio----
+
+    function removerProd_carrito(valorid) {
+        carrito = carrito.filter((producto) => producto.id != valorid);
+        console.log('se ejecuto');
+        generarWidgetsCarrito(carrito);
+        SubtotalActualizado = subtotalCarrito() - valorid.precio;
+        document.getElementById("cantidad-prod").innerHTML = carrito.length;
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    }
+
+    // Funcion para poder sacar un producto de mi carrito   ----Fin----
+
+    // Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
+
+    subtotalCarrito(carrito);
+
+    function subtotalCarrito() {
+        const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
+
+        document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
+    };
+
+    // Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
+
+
+
 }
-function mostrarProductosTopSellingEnHtml(cards) {
-    document.getElementById("products-topSelling").innerHTML=cards;
-}
-
-
-
-
-// Funcion para generar las cards en los productos del Top Sellings -----Fin-----
-// Funcion para generar las cards en los productos del Top Sellings -----Fin-----
-
-
-
-// Funcion para poder sacar un producto de mi carrito  ----Inicio----
-// Funcion para poder sacar un producto de mi carrito  ----Inicio----
-
-
-function removerProd_carrito(valorid) {
-    carrito = carrito.filter((producto) => producto.id != valorid);
-    console.log('se ejecuto');
-    generarWidgetsCarrito(carrito);
-    SubtotalActualizado = subtotalCarrito() - valorid.precio;
-    document.getElementById("cantidad-prod").innerHTML = carrito.length;
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-
-}
-
-
-
-
-
-
-
-
-// Funcion para poder sacar un producto de mi carrito   ----Fin----
-// Funcion para poder sacar un producto de mi carrito   ----Fin----
-
-
-
-
-// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
-// Funcion para generar el subtotal de los productos agregados al carrito ----Comienzo-----
-
-subtotalCarrito(carrito);
-
-function subtotalCarrito() {
-    const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
-
-    document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
-};
-
-// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
-// Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
-
-
-
-const colores = ['rojo', 'amarillo', 'azul'];
-const select = document.querySelector('#colores');
-
-colores.forEach(element => {
-    select.innerHTML += `
-    <option value="${element}">${element} </option>
-    `
-
-});
-
-// function remover (producto) {
-//     productoRemovido = $0.remove;
-//     console.log('el producto se borro');
-
-// }
-
-// remover($0)
