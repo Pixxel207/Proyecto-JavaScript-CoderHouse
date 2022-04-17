@@ -1,4 +1,6 @@
-var carrito = validandoCarrito();
+let carrito = validandoCarrito();
+
+//let carrito = [];
 
 function validandoCarrito() {
     if (localStorage.getItem("carrito") != null) {
@@ -8,7 +10,7 @@ function validandoCarrito() {
     }
 }
 
-document.getElementById("cantidad-prod").innerHTML = carrito.length;
+document.getElementById("cantidad-prod").innerHTML = obtenerCantidadCarrito();
 
 // Arrays Inicio
 
@@ -18,7 +20,8 @@ const productos = [{
         precio: 30000,
         stock: 0,
         precioNormal: 50000,
-        imagen: "https://img.global.news.samsung.com/pe/wp-content/uploads/2018/05/62-1024x683.jpg"
+        imagen: "https://img.global.news.samsung.com/pe/wp-content/uploads/2018/05/62-1024x683.jpg",
+        cantidad: 1
     },
     {
         id: 2,
@@ -26,7 +29,8 @@ const productos = [{
         precio: 50000,
         stock: 0,
         precioNormal: 100000,
-        imagen: "https://hendel-r7d8odghj1.stackpathdns.com/media/catalog/product/cache/0c3e9ac8430b5a3e77d1544ae1698a10/4/3/43406_1-min_1.jpg"
+        imagen: "https://hendel-r7d8odghj1.stackpathdns.com/media/catalog/product/cache/0c3e9ac8430b5a3e77d1544ae1698a10/4/3/43406_1-min_1.jpg",
+        cantidad: 1
     },
     {
         id: 3,
@@ -34,7 +38,8 @@ const productos = [{
         precio: 35000,
         stock: 0,
         precioNormal: 50000,
-        imagen: "https://mallweb.com.ar/media/catalog/product/cache/1/image/900x/9df78eab33525d08d6e5fb8d27136e95/g/i/gimage_26905.jpg"
+        imagen: "https://mallweb.com.ar/media/catalog/product/cache/1/image/900x/9df78eab33525d08d6e5fb8d27136e95/g/i/gimage_26905.jpg",
+        cantidad: 1
     },
     {
         id: 4,
@@ -42,7 +47,8 @@ const productos = [{
         precio: 2500,
         stock: 0,
         precioNormal: 30000,
-        imagen: "https://images.samsung.com/is/image/samsung/p6pim/latin/feature/137886436/latin-feature-galaxy-tab-a7-lite-457405030?$FB_TYPE_A_MO_JPG$"
+        imagen: "https://images.samsung.com/is/image/samsung/p6pim/latin/feature/137886436/latin-feature-galaxy-tab-a7-lite-457405030?$FB_TYPE_A_MO_JPG$",
+        cantidad: 1
     }
 
 ]
@@ -55,7 +61,8 @@ const TopSelling = [
         precio:150000,
         stock:0,
         precioSinRebaja:300000,
-        imagen:"https://nissei.com/media/catalog/product/cache/16a9529cefd63504739dab4fc3414065/i/p/iphone-13-pro-max-blue-selectyyyy.jpg"
+        imagen:"https://nissei.com/media/catalog/product/cache/16a9529cefd63504739dab4fc3414065/i/p/iphone-13-pro-max-blue-selectyyyy.jpg",
+        cantidad: 1
     },
     {
         id:2,
@@ -63,7 +70,8 @@ const TopSelling = [
         precio:150000,
         stock:0,
         precioSinRebaja:300000,
-        imagen:"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTXi-S9ugudqDRV9vCybOhnGnkcR24GsqKRmPK3OoZuQJEfMsMmKVTTG2wrnJT3GUWg4zVPhhlj8gQyrHWbmRslPF8li2J41A"
+        imagen:"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTXi-S9ugudqDRV9vCybOhnGnkcR24GsqKRmPK3OoZuQJEfMsMmKVTTG2wrnJT3GUWg4zVPhhlj8gQyrHWbmRslPF8li2J41A",
+        cantidad: 1
     },
     {
         id:3,
@@ -71,7 +79,8 @@ const TopSelling = [
         precio:150000,
         stock:0,
         precioSinRebaja:300000,
-        imagen:"https://http2.mlstatic.com/D_NQ_NP_612869-MLA48741510265_012022-O.webp"
+        imagen:"https://http2.mlstatic.com/D_NQ_NP_612869-MLA48741510265_012022-O.webp",
+        cantidad: 1
     },
     {
         id:4,
@@ -79,7 +88,8 @@ const TopSelling = [
         precio:150000,
         stock:0,
         precioSinRebaja:300000,
-        imagen:"http://medias.musimundo.com/medias/00435014-144181-144181-01-144181-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w3NTMxOHxpbWFnZS9qcGVnfGgwYS9oMjgvMTAzMDEzNjA5NjM2MTQvMDA0MzUwMTQtMTQ0MTgxLTE0NDE4MV8wMS0xNDQxODFfMDEuanBnX3NpemU1MTV8ZDQ0Mjc1ZTI3MDUxMzkxNzEzZjIyZjlhMzI0MGE3M2Q1ZjY2ZmM2Zjc1ZTgzMDNhMDE5OGE0YjU0NDA3YTExYg"
+        imagen:"http://medias.musimundo.com/medias/00435014-144181-144181-01-144181-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w3NTMxOHxpbWFnZS9qcGVnfGgwYS9oMjgvMTAzMDEzNjA5NjM2MTQvMDA0MzUwMTQtMTQ0MTgxLTE0NDE4MV8wMS0xNDQxODFfMDEuanBnX3NpemU1MTV8ZDQ0Mjc1ZTI3MDUxMzkxNzEzZjIyZjlhMzI0MGE3M2Q1ZjY2ZmM2Zjc1ZTgzMDNhMDE5OGE0YjU0NDA3YTExYg",
+        cantidad: 1
     },
     {
         id:5,
@@ -87,7 +97,8 @@ const TopSelling = [
         precio:150000,
         stock:0,
         precioSinRebaja:300000,
-        imagen:"https://http2.mlstatic.com/D_NQ_NP_844070-MLA46435469794_062021-O.webp"
+        imagen:"https://http2.mlstatic.com/D_NQ_NP_844070-MLA46435469794_062021-O.webp",
+        cantidad: 1
     }
 ]
 
@@ -95,15 +106,40 @@ const TopSelling = [
 
 // Funcion de agregar al carrito -----Comienzo-------
 
-const agregarAlCarrito = (idProducto) => {
-    const productosAgregados = productos.find(producto => producto.id === idProducto);
-    carrito.push(productosAgregados);
-    document.getElementById("cantidad-prod").innerHTML = carrito.length;
+function agregarAlCarrito(idProducto){
+    //carrito.forEach((x) => { x.id == idProducto ? x.cantidad += 1 : 1==1});
+    let flag = false;
+    for(const producto of carrito)
+    {
+        if(producto.id == idProducto)
+        {
+            producto.cantidad++;
+            flag = true;
+            break;
+        }
+    }
+    if(!flag)
+    {
+        const productoAgregado = productos.find(producto => producto.id === idProducto);
+        carrito.push(productoAgregado);
+    }
+
+    document.getElementById("cantidad-prod").innerHTML = obtenerCantidadCarrito();
     localStorage.setItem("carrito", JSON.stringify(carrito));
     swal("Agregaste el producto al carrito!", "Gracias por confiar!", "success");
 
 
-};
+}
+
+function obtenerCantidadCarrito()
+{
+    let cant = 0;
+    for(const producto of carrito)
+    {
+        cant += producto.cantidad;
+    }
+    return cant;
+}
 
 // Funcion de agregar al carrito -----Fin-------
 
@@ -198,7 +234,7 @@ function generarWidgetsCarrito() {
             </div>
             <div class="product-body">
                 <h3 class="product-name"><a href="#">${producto.titulo}</a></h3>
-                <h4 class="product-price"><span class="qty">1x</span>${producto.precio}</h4>
+                <h4 class="product-price"><span id="cantidad" class="qty">${producto.cantidad}x</span>${producto.precio}</h4>
             </div>
             <button onclick="removerProd_carrito(${producto.id})" class="delete"><i class="fa fa-close"></i></button>
         </div>`
@@ -269,10 +305,16 @@ function subtotalCarrito() {
 const colores = ['rojo', 'amarillo', 'azul'];
 const select = document.querySelector('#colores');
 
-colores.forEach(element => {
-    select.innerHTML += `
-    <option value="${element}">${element} </option>
-    `
+// colores.forEach(element => {
+//     select.innerHTML += `
+//     <option value="${element}">${element} </option>
+//     `
 
-});
+// });
 
+
+function validarRepetido(idAgregado)
+{
+    const idRepetido = 0;
+    carrito.forEach((x) => {x.id == idAgregado ? idRepetido = x.id : 1==1});
+}
