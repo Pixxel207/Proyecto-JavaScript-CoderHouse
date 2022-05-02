@@ -1,8 +1,8 @@
 let carrito = validandoCarrito();
 
-fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+fetch("data.json")
 .then((response) => response.json())
-.then((data) => console.log(data));
+.then((data) => generarCards(data.productos));
 //let carrito = [];
 
 function validandoCarrito() {
@@ -17,7 +17,7 @@ document.getElementById("cantidad-prod").innerHTML = obtenerCantidadCarrito();
 
 // Arrays Inicio
 
-const productos = [{
+ const productos = [{
         id: 1,
         titulo: 'Notebook Samsung',
         precio: 30000,
