@@ -1,5 +1,8 @@
 let carrito = validandoCarrito();
 
+fetch("data.json")
+.then((response) => response.json())
+.then((data) => generarCards(data.productos));
 //let carrito = [];
 
 function validandoCarrito() {
@@ -14,7 +17,7 @@ document.getElementById("cantidad-prod").innerHTML = obtenerCantidadCarrito();
 
 // Arrays Inicio
 
-const productos = [{
+ const productos = [{
         id: 1,
         titulo: 'Notebook Samsung',
         precio: 30000,
@@ -124,6 +127,7 @@ function agregarAlCarrito(idProducto){
         carrito.push(productoAgregado);
     }
 
+
     document.getElementById("cantidad-prod").innerHTML = obtenerCantidadCarrito();
     localStorage.setItem("carrito", JSON.stringify(carrito));
     swal("Agregaste el producto al carrito!", "Gracias por confiar!", "success");
@@ -142,10 +146,6 @@ function obtenerCantidadCarrito()
 }
 
 // Funcion de agregar al carrito -----Fin-------
-
-function agregarVarios() {
-    const productoSeleccionado = pro
-}
 
 // Funcion para generar cards en el html -----Comienzo-----
 
@@ -193,33 +193,6 @@ function mostrarCardsEnElHTML(cards) {
 
 // Funcion para generar cards en el html -----Fin-----
 
-// function buscarProductos() {
-//     const email = document.getElementbyId("productos-buscados").value;
-//     console.log(email);
-
-// }
-
-
-
-// function buscarProducto() {
-//     console.log("Hola!")
-//     const nombreProductoBuscado = document.getElementById("producto-buscado").value.toUpperCase().trim();
-
-//     const productosEncontrados = productos.filter((producto) => {
-//         return producto.titulo.toUpperCase().match(nombreProductoBuscado);
-//     });
-
-//     generarCards(productosEncontrados);
-// }
-
-
-
-// const boton = document.getElementById("boton-buscar");
-
-
-// function tomarValor(event) {
-//     console.log(event.target.value);
-// }
 
 // Funcion generar widgets en el menu que despliega el carrito ------Inicio-----
 
@@ -234,7 +207,7 @@ function generarWidgetsCarrito() {
             </div>
             <div class="product-body">
                 <h3 class="product-name"><a href="#">${producto.titulo}</a></h3>
-                <h4 class="product-price"><span id="cantidad" class="qty">${producto.cantidad}x</span>${producto.precio}</h4>
+                <h4 class="product-price"><span id="cantidad" class="qty">${producto.cantidad}x</span>${producto.precio * producto.cantidad}</h4>
             </div>
             <button onclick="removerProd_carrito(${producto.id})" class="delete"><i class="fa fa-close"></i></button>
         </div>`
@@ -294,23 +267,18 @@ subtotalCarrito(carrito);
 
 function subtotalCarrito() {
     const totalCarrito = carrito.reduce((accumulador, next) => accumulador + next.precio, 0);
-
-    document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCarrito}`;
+    let totalCompra = 0;
+    for(const producto of carrito)
+    {
+        let subtotal = producto.cantidad * producto.precio;
+        totalCompra += subtotal;
+    }
+    document.getElementById("subtotal-carrito").innerHTML = `El total de su compra es ${totalCompra}`;
 };
 
 // Funcion para generar el subtotal de los productos agregados al carrito ----Fin-----
 
-
-
-const colores = ['rojo', 'amarillo', 'azul'];
-const select = document.querySelector('#colores');
-
-// colores.forEach(element => {
-//     select.innerHTML += `
-//     <option value="${element}">${element} </option>
-//     `
-
-// });
+// Funcion para validarRepetido Inicio
 
 
 function validarRepetido(idAgregado)
@@ -318,3 +286,5 @@ function validarRepetido(idAgregado)
     const idRepetido = 0;
     carrito.forEach((x) => {x.id == idAgregado ? idRepetido = x.id : 1==1});
 }
+
+// Funcion para validarRepetido Fin
